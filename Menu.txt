@@ -1,0 +1,35 @@
+
+
+
+
+
+Hlavní menu:
+
+
+********************
+*******1:21********* (èas do vypnutí motoru 1:21)
+********************
+Start***100***Menu** (rychlost motoru 100) - Pøi vypnutém motoru a se zobrazí Start, pøi chodu motoru a se zobrazí stop
+(stop)
+
+
+	Menu: (po neèinosti delší jak 20 sekund se vrátí na do hlavního menu) - Do menu lze vstoupit, v pøípadì, e je chod motoru vypnutı
+	Délka omılání - 30 min  (Nastavení délky bìhu motoru v minutách)
+	Rychlost omılání - 100 ot/min (nastavení rychlosti motoru v otáèkách za minutu)
+	Naèíst (Naètìní u uloenıch hodnot délky a rychlosti) - jestli v tom bude problém tak to vynech
+	Uloit (uloení nastavené délky bìhu motoru a jehoé rychlosti)
+
+
+		Délka omılání:
+		Monost nastavení od 0 do 200
+
+		Rychlost omılání:
+		Monost nastavení od 0 do 100 (prozatím na zkoušku, pak se odzkouší jaká je ideální max. hodnota)
+
+		Naèíst:
+		30m/100ot (délka v minutách/rychlost otáèek za minutu)
+		20m/50ot  (délka v minutách/rychlost otáèek za minutu)
+		90m/20ot  (délka v minutách/rychlost otáèek za minutu)
+
+		Uloit:
+		Uloeno (po 2s se vráti do Menu: )
