@@ -10,6 +10,14 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/fuse.h>
+
+FUSES =
+{
+	.low = 0xFF,
+	.high = 0xD6,
+	.extended = 0xFD
+};
 
 #include "TUI.h"
 #include "wyk_lcd.h"
@@ -84,7 +92,7 @@ int main(void)
 
 	TUI_inti();
 	TUI('s');
-
+		
 	for(;;)
     {
 		;

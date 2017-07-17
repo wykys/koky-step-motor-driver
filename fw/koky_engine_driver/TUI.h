@@ -1,5 +1,5 @@
  /*
- * Knihovna zajištující textové rozhranní pro ovládání motoru
+ * Knihovna zajistujici textove rozhranni pro ovladani motoru
  *
  * autor: wykys
  * verze: 1.0
@@ -12,12 +12,14 @@
 #include "settings.h"
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/eeprom.h>
 #include <avr/interrupt.h>
 #include "wyk_lcd.h"
 #include "wyk_step_stick.h"
 
-#define MENU_SYMBOL_SELECT	'>'
+#define MENU_SYMBOL_SELECT	8
 #define MENU_SYMBOL_SPACE	' '
+#define MENU_BAR_SYMBOL		9
 
 typedef enum
 {
@@ -49,16 +51,38 @@ typedef enum
 	ITEM_MENU_SELECT_SAVE
 } item_menu_select_t;
 
+typedef enum
+{
+	LOAD_MENU_SELECT_PROFILE1,
+	LOAD_MENU_SELECT_PROFILE2,
+	LOAD_MENU_SELECT_PROFILE3
+} load_menu_select_t;
+
+typedef enum
+{
+	SAVE_MENU_SELECT_PROFILE1,
+	SAVE_MENU_SELECT_PROFILE2,
+	SAVE_MENU_SELECT_PROFILE3
+} save_menu_select_t;
+
 typedef struct
 {
-	uint16_t sec;
 	uint16_t rpm;
+	uint16_t sec;
 } profile_t;
+
+typedef struct
+{
+	uint8_t profile_id;
+	profile_t profile[3];
+} eeprom_data_t;
 
 extern menu_t menu;
 extern uint32_t back_tick;
+extern uint16_t actual_rmp;
 extern profile_t user_profile, backup_profile;
 extern machine_state_t machine_state;
+extern eeprom_data_t eeprom_data;
 
 // ========================================================
 

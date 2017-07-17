@@ -7,11 +7,41 @@ void motor_init(void)
 	MOTOR_STEP_DDR |= MOTOR_STEP_PIN;
 
 	MOTOR_DRIVER_OFF;
+	
+	switch (MOTOR_USTEP)
+	{
+		case 1:
+			MOTOR_MS1_0;
+			MOTOR_MS2_0;
+			MOTOR_MS3_0;
+			break;
+		case 2:
+			MOTOR_MS1_1;
+			MOTOR_MS2_0;
+			MOTOR_MS3_0;
+			break;
+		case 4:
+			MOTOR_MS1_0;
+			MOTOR_MS2_1;
+			MOTOR_MS3_0;
+			break;
+		case 8:
+			MOTOR_MS1_1;
+			MOTOR_MS2_1;
+			MOTOR_MS3_0;
+			break;
+		default:
+			MOTOR_MS1_1;
+			MOTOR_MS2_1;
+			MOTOR_MS3_1;
+	}
 
-	TCCR0A = (1<<COM0A0) | (1<<WGM01);				// toggle OCR1 CTC mode
-	TCCR0B = 0;										// clock off CTC mode
-	OCR0A = 0;
-	TCNT0 = 0;
+	
+
+	TCCR2A = (1<<COM2A0) | (1<<WGM21);				// toggle OCR2A CTC mode
+	TCCR2B = 0;										// clock off
+	OCR2A = 0;
+	TCNT2 = 0;
 	MOTOR_DIR0;
 }
 
@@ -19,8 +49,8 @@ void motor_set_rpm(uint16_t rpm)					// rote per minute
 {
 	uint32_t buf;
 	const uint32_t freq = F_CPU*60;
-	const uint16_t div[] = {1, 8, 64, 256, 1024};
-	const uint8_t div_len = 5;
+	const uint16_t div[] = {1, 8, 32, 64, 128, 256, 1024};
+	const uint8_t div_len = 7;
 
 	uint8_t i;
 
@@ -31,9 +61,9 @@ void motor_set_rpm(uint16_t rpm)					// rote per minute
 			buf = freq / ( ((uint32_t)rpm) * MOTOR_PERIOD * 2 * div[i] );
 			if (buf < 0xFF && buf > 0)
 			{
-				TCCR0B = i+1;						// clock/div[i]
-				OCR0A = (uint8_t )buf;
-				TCNT0 = 0;
+				TCCR2B = i+1;						// clock/div[i]
+				OCR2A = (uint8_t )buf;
+				TCNT2 = 0;
 				MOTOR_DRIVER_ON;
 				break;
 			}
@@ -41,9 +71,10 @@ void motor_set_rpm(uint16_t rpm)					// rote per minute
 	}
 	else
 	{
-		TCCR0B = 0x00;
+		TCCR2B = 0x00;
 		MOTOR_DRIVER_OFF;
 	}
+	actual_rmp = rpm;
 }
 
 
@@ -61,7 +92,7 @@ void motor_smoothly_rmp(uint16_t rpm_start, uint16_t rpm_end)
 		step = -1;
 	}
 
-	for (rpm=rpm_start; rpm!=(rpm_end+step); rpm+=step)
+	for (rpm=rpm_start; rpm!=(rpm_end+step) && !(EIFR & (1<<INTF0)); rpm+=step)
 	{
 		user_profile.rpm = rpm;
 		if (!(user_profile.rpm % 20))

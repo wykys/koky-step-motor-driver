@@ -38,7 +38,9 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.c \
-../wyk_lcd.c
+../TUI.c \
+../wyk_lcd.c \
+../wyk_step_stick.c
 
 
 PREPROCESSING_SRCS += 
@@ -49,19 +51,27 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
-wyk_lcd.o
+TUI.o \
+wyk_lcd.o \
+wyk_step_stick.o
 
 OBJS_AS_ARGS +=  \
 main.o \
-wyk_lcd.o
+TUI.o \
+wyk_lcd.o \
+wyk_step_stick.o
 
 C_DEPS +=  \
 main.d \
-wyk_lcd.d
+TUI.d \
+wyk_lcd.d \
+wyk_step_stick.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
-wyk_lcd.d
+TUI.d \
+wyk_lcd.d \
+wyk_step_stick.d
 
 OUTPUT_FILE_PATH +=koky_engine_driver.elf
 
@@ -77,6 +87,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

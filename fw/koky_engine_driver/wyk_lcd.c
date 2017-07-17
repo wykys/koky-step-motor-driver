@@ -29,8 +29,26 @@ void lcd_init(void)
 	lcd_cmd(LCD_CMD_CLR);
 
 	// přidání vlastních znaků
-	//lcd_cmd(LCD_CMD_W_CGRAM);
-
+	lcd_cmd(LCD_CMD_W_CGRAM);
+	// trojuhelnik
+	lcd_put(0b00010000);
+	lcd_put(0b00011000);
+	lcd_put(0b00011100);
+	lcd_put(0b00011110);
+	lcd_put(0b00011100);
+	lcd_put(0b00011000);
+	lcd_put(0b00010000);
+	lcd_put(0b00000000);
+	// bar
+	lcd_put(0b00000000);
+	lcd_put(0b00000000);
+	lcd_put(0b00011111);
+	lcd_put(0b00011111);
+	lcd_put(0b00011111);
+	lcd_put(0b00011111);
+	lcd_put(0b00000000);
+	lcd_put(0b00000000);
+	
 	// přepnutí na zápis do zobrazovací paměti
 	lcd_cmd(LCD_CMD_W_DDRAM);
 }

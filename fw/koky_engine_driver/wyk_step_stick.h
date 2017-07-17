@@ -14,9 +14,9 @@
 #include <util/delay.h>
 #include "TUI.h"
 
-#define MOTOR_STEP_PORT   PORTD
-#define	MOTOR_STEP_DDR    DDRD
-#define MOTOR_STEP_PIN    (1<<PD6)
+#define MOTOR_STEP_PORT   PORTB
+#define	MOTOR_STEP_DDR    DDRB
+#define MOTOR_STEP_PIN    (1<<PB3)
 
 #define MOTOR_DIR_PORT    PORTD
 #define	MOTOR_DIR_DDR     DDRD
@@ -26,6 +26,18 @@
 #define	MOTOR_ENA_DDR     DDRD
 #define MOTOR_ENA_PIN     (1<<PD7)
 
+#define MOTOR_MS1_PORT    PORTB
+#define	MOTOR_MS1_DDR     DDRB
+#define MOTOR_MS1_PIN     (1<<PB0)
+
+#define MOTOR_MS2_PORT    PORTB
+#define	MOTOR_MS2_DDR     DDRB
+#define MOTOR_MS2_PIN     (1<<PB1)
+
+#define MOTOR_MS3_PORT    PORTB
+#define	MOTOR_MS3_DDR     DDRB
+#define MOTOR_MS3_PIN     (1<<PB2)
+
 #define MOTOR_STEP0       MOTOR_STEP_PORT &= ~MOTOR_STEP_PIN
 #define MOTOR_STEP1       MOTOR_STEP_PORT |= MOTOR_STEP_PIN
 
@@ -34,6 +46,15 @@
 
 #define MOTOR_DRIVER_ON   MOTOR_ENA_PORT &= ~MOTOR_ENA_PIN
 #define MOTOR_DRIVER_OFF  MOTOR_ENA_PORT |= MOTOR_ENA_PIN
+
+#define MOTOR_MS1_0       MOTOR_MS1_PORT &= ~MOTOR_MS1_PIN
+#define MOTOR_MS1_1       MOTOR_MS1_PORT |= MOTOR_MS1_PIN
+
+#define MOTOR_MS2_0       MOTOR_MS2_PORT &= ~MOTOR_MS2_PIN
+#define MOTOR_MS2_1       MOTOR_MS2_PORT |= MOTOR_MS2_PIN
+
+#define MOTOR_MS3_0       MOTOR_MS3_PORT &= ~MOTOR_MS3_PIN
+#define MOTOR_MS3_1       MOTOR_MS3_PORT |= MOTOR_MS3_PIN
 
 #define MOTOR_STEP        1.8                           // stupen otoceni motoru
 #define MOTOR_USTEP       16                            // obracena hodnota z modu full 1; half 2; quadret 4...
