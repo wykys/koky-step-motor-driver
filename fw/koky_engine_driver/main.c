@@ -47,14 +47,42 @@ ISR(INT0_vect)
 
 ISR(INT1_vect)
 {
+	static uint8_t step = 0;
+	static uint8_t dir = 0;
+
 	TUI_back_timer_clear();
 	if (ENC_A_PIN & ENC_A)
 	{
-		TUI('-');
+		
+		if (!dir)
+		{
+			step++;
+			if (step >= 5)
+			{
+				TUI('-');
+			}
+		}
+		else
+		{
+			dir = 0;
+			step = 0;
+		}
 	}
 	else
 	{
-		TUI('+');
+		if (dir)
+		{
+			step++;
+			if (step >= 5)
+			{
+				TUI('+');
+			}
+		}
+		else
+		{
+			dir = 1;
+			step = 0;
+		}
 	}
 }
 
