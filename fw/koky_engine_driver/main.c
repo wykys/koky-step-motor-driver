@@ -7,6 +7,8 @@
 
 #include "settings.h"
 
+#define ENCODER_TICK_FOR_UPDATE		5
+
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
@@ -57,10 +59,8 @@ ISR(INT1_vect)
 		if (!dir)
 		{
 			step++;
-			if (step >= 5)
-			{
+			if (step >= ENCODER_TICK_FOR_UPDATE)
 				TUI('-');
-			}
 		}
 		else
 		{
@@ -73,10 +73,8 @@ ISR(INT1_vect)
 		if (dir)
 		{
 			step++;
-			if (step >= 5)
-			{
+			if (step >= ENCODER_TICK_FOR_UPDATE)
 				TUI('+');
-			}
 		}
 		else
 		{
