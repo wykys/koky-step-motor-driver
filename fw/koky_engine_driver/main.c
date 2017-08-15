@@ -23,6 +23,7 @@ FUSES =
 
 #include "TUI.h"
 #include "wyk_lcd.h"
+#include "wyk_ntc.h"
 #include "wyk_step_stick.h"
 
 // ============================================================================
@@ -113,6 +114,7 @@ int main(void)
 	motor_init();
 	encoder_init();
 	lcd_init();
+	ntc_init();
 
 	sei();
 
@@ -121,6 +123,7 @@ int main(void)
 		
 	for(;;)
     {
-		;
+		lcd_printf("\fTeplota: %d%cC", ntc_measure(), 223);
+		_delay_ms(1000);
     }
 }

@@ -40,6 +40,7 @@ C_SRCS +=  \
 ../main.c \
 ../TUI.c \
 ../wyk_lcd.c \
+../wyk_ntc.c \
 ../wyk_step_stick.c
 
 
@@ -53,24 +54,28 @@ OBJS +=  \
 main.o \
 TUI.o \
 wyk_lcd.o \
+wyk_ntc.o \
 wyk_step_stick.o
 
 OBJS_AS_ARGS +=  \
 main.o \
 TUI.o \
 wyk_lcd.o \
+wyk_ntc.o \
 wyk_step_stick.o
 
 C_DEPS +=  \
 main.d \
 TUI.d \
 wyk_lcd.d \
+wyk_ntc.d \
 wyk_step_stick.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
 TUI.d \
 wyk_lcd.d \
+wyk_ntc.d \
 wyk_step_stick.d
 
 OUTPUT_FILE_PATH +=koky_engine_driver.elf
@@ -87,6 +92,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

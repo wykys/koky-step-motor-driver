@@ -8,5 +8,7 @@ TUI.c
 
 wyk_lcd.c
 
+wyk_ntc.c
+
 wyk_step_stick.c
 
