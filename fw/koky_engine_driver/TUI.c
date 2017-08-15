@@ -46,6 +46,7 @@ ISR(TIMER1_COMPA_vect)
 		{
 			motor_smoothly_rmp(user_profile.rpm, 0);
 			machine_state = MACHINE_STOP;
+			VALVE_OFF;
 			user_profile = backup_profile;
 		}
 	}
