@@ -15,6 +15,7 @@
 #include <avr/eeprom.h>
 #include <avr/interrupt.h>
 #include "wyk_lcd.h"
+#include "wyk_ntc.h"
 #include "wyk_step_stick.h"
 
 #define MENU_SYMBOL_SELECT	8

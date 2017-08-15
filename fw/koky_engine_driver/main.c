@@ -123,7 +123,6 @@ int main(void)
 		
 	for(;;)
     {
-		lcd_printf("\fTeplota: %d%cC", ntc_measure(), 223);
-		_delay_ms(1000);
+		asm("nop");
     }
 }

@@ -24,6 +24,7 @@ void TUI_sec_timer_init(void)
 	TCCR1A = 0;
 	OCR1A = F_CPU / 1024;							// TOP value for 1 sec
 	TIMSK1 = (1<<OCIE1A);							// compare IT enable
+	TUI_sec_timer_start();
 }
 void TUI_sec_timer_start(void)
 {
@@ -44,12 +45,11 @@ ISR(TIMER1_COMPA_vect)
 		if (!user_profile.sec)
 		{
 			motor_smoothly_rmp(user_profile.rpm, 0);
-			TUI_sec_timer_stop();
 			machine_state = MACHINE_STOP;
 			user_profile = backup_profile;
 		}
-		TUI('s');
 	}
+	TUI('s');
 }
 
 
@@ -130,14 +130,12 @@ void TUI(char action)
 						{
 							machine_state = MACHINE_START;
 							backup_profile = user_profile;
-							motor_smoothly_rmp(actual_rmp, user_profile.rpm);
-							TUI_sec_timer_start();
+							motor_smoothly_rmp(actual_rmp, user_profile.rpm);							
 						}
 						else
 						{
 							machine_state = MACHINE_STOP;
-							motor_smoothly_rmp(user_profile.rpm, 0);
-							TUI_sec_timer_stop();
+							motor_smoothly_rmp(user_profile.rpm, 0);							
 							user_profile = backup_profile;
 						}
 					}
@@ -343,10 +341,11 @@ void TUI(char action)
 		case MAIN_MENU:
 
 			if (user_profile.sec/3600)
-				lcd_printf("\fCas:        %2d:%02d:%02d", user_profile.sec/3600, (user_profile.sec%3600)/60,  (user_profile.sec%3600)%60);
+				lcd_printf("\f%02d:%02d:%02d", user_profile.sec/3600, (user_profile.sec%3600)/60,  (user_profile.sec%3600)%60);
 			else
-				lcd_printf("\fCas:           %2d:%02d", (user_profile.sec%3600)/60,  (user_profile.sec%3600)%60);
-			lcd_printf("\nOtacky:         %4d", user_profile.rpm);
+				lcd_printf("\f%02d:%02d   ", (user_profile.sec%3600)/60,  (user_profile.sec%3600)%60);
+			lcd_printf("       %3d%cC", ntc_measure(), 223);
+			lcd_printf("\n        %4d", user_profile.rpm);
 
 			switch (machine_state)
 			{
