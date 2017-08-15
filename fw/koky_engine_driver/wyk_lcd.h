@@ -14,7 +14,7 @@
 #include <util/delay.h>
 #include <stdarg.h>
 
-#define LCD_RS		(1<<PC5)		// 0 - instrukce 1 - data
+#define LCD_RS		(1<<PD0)		// 0 - instrukce 1 - data
 #define LCD_EN		(1<<PC4)
 
 #define LCD_D7		(1<<PC0)
@@ -22,7 +22,7 @@
 #define LCD_D5		(1<<PC2)
 #define LCD_D4		(1<<PC3)
 
-#define LCD_RS_PORT	PORTC
+#define LCD_RS_PORT	PORTD
 #define LCD_EN_PORT	PORTC
 
 #define LCD_D7_PORT	PORTC
@@ -30,7 +30,7 @@
 #define LCD_D5_PORT	PORTC
 #define LCD_D4_PORT	PORTC
 
-#define LCD_RS_DDR	DDRC
+#define LCD_RS_DDR	DDRD
 #define LCD_EN_DDR	DDRC
 
 #define LCD_D7_DDR	DDRC

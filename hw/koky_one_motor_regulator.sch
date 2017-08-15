@@ -243,7 +243,7 @@ F 3 "" H 5900 1600 50  0001 C CNN
 	1    5900 1600
 	1    0    0    -1  
 $EndComp
-Text Label 4850 4500 2    60   ~ 0
+Text Label 4850 4750 2    60   ~ 0
 LCD_RS
 Text Label 4850 4400 2    60   ~ 0
 LCD_EN
@@ -363,7 +363,7 @@ Wire Wire Line
 Wire Wire Line
 	4500 4400 4850 4400
 Wire Wire Line
-	4500 4500 4850 4500
+	4500 4750 4850 4750
 $Comp
 L Crystal Y1
 U 1 1 5962A942
@@ -543,7 +543,6 @@ Wire Wire Line
 	7800 3250 4500 3250
 Wire Wire Line
 	4500 3350 7800 3350
-NoConn ~ 4500 4750
 NoConn ~ 4500 4850
 Wire Wire Line
 	4500 5450 6650 5450
@@ -569,4 +568,5 @@ Wire Wire Line
 Wire Wire Line
 	6250 2050 6250 3450
 Connection ~ 6250 2850
+NoConn ~ 4500 4500
 $EndSCHEMATC

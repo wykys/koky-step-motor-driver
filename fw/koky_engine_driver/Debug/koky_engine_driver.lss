@@ -25,11 +25,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  10 .debug_frame  000004d4  00000000  00000000  000073e4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000089f  00000000  00000000  000078b8  2**0
+ 11 .debug_str    000008a0  00000000  00000000  000078b8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    00000a0d  00000000  00000000  00008157  2**0
+ 12 .debug_loc    00000a0d  00000000  00000000  00008158  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 000000e8  00000000  00000000  00008b64  2**0
+ 13 .debug_ranges 000000e8  00000000  00000000  00008b65  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2846,23 +2846,23 @@ void lcd_init(void)
     13d6:	0f be       	out	0x3f, r0	; 63
     13d8:	cd bf       	out	0x3d, r28	; 61
 	LCD_RS_DDR |= LCD_RS;
-    13da:	87 e2       	ldi	r24, 0x27	; 39
+    13da:	8a e2       	ldi	r24, 0x2A	; 42
     13dc:	90 e0       	ldi	r25, 0x00	; 0
-    13de:	27 e2       	ldi	r18, 0x27	; 39
+    13de:	2a e2       	ldi	r18, 0x2A	; 42
     13e0:	30 e0       	ldi	r19, 0x00	; 0
     13e2:	f9 01       	movw	r30, r18
     13e4:	20 81       	ld	r18, Z
-    13e6:	20 62       	ori	r18, 0x20	; 32
+    13e6:	21 60       	ori	r18, 0x01	; 1
     13e8:	fc 01       	movw	r30, r24
     13ea:	20 83       	st	Z, r18
 	LCD_RS0;
-    13ec:	88 e2       	ldi	r24, 0x28	; 40
+    13ec:	8b e2       	ldi	r24, 0x2B	; 43
     13ee:	90 e0       	ldi	r25, 0x00	; 0
-    13f0:	28 e2       	ldi	r18, 0x28	; 40
+    13f0:	2b e2       	ldi	r18, 0x2B	; 43
     13f2:	30 e0       	ldi	r19, 0x00	; 0
     13f4:	f9 01       	movw	r30, r18
     13f6:	20 81       	ld	r18, Z
-    13f8:	2f 7d       	andi	r18, 0xDF	; 223
+    13f8:	2e 7f       	andi	r18, 0xFE	; 254
     13fa:	fc 01       	movw	r30, r24
     13fc:	20 83       	st	Z, r18
 
@@ -3726,13 +3726,13 @@ void lcd_put(char znak)
     19a0:	f9 01       	movw	r30, r18
     19a2:	80 83       	st	Z, r24
 	LCD_RS1;
-    19a4:	88 e2       	ldi	r24, 0x28	; 40
+    19a4:	8b e2       	ldi	r24, 0x2B	; 43
     19a6:	90 e0       	ldi	r25, 0x00	; 0
-    19a8:	28 e2       	ldi	r18, 0x28	; 40
+    19a8:	2b e2       	ldi	r18, 0x2B	; 43
     19aa:	30 e0       	ldi	r19, 0x00	; 0
     19ac:	f9 01       	movw	r30, r18
     19ae:	20 81       	ld	r18, Z
-    19b0:	20 62       	ori	r18, 0x20	; 32
+    19b0:	21 60       	ori	r18, 0x01	; 1
     19b2:	fc 01       	movw	r30, r24
     19b4:	20 83       	st	Z, r18
 	lcd_set_nibble(znak>>4);
@@ -4383,13 +4383,13 @@ _delay_loop_1(uint8_t __count)
     1df0:	fc 01       	movw	r30, r24
     1df2:	20 83       	st	Z, r18
 	LCD_RS0;
-    1df4:	88 e2       	ldi	r24, 0x28	; 40
+    1df4:	8b e2       	ldi	r24, 0x2B	; 43
     1df6:	90 e0       	ldi	r25, 0x00	; 0
-    1df8:	28 e2       	ldi	r18, 0x28	; 40
+    1df8:	2b e2       	ldi	r18, 0x2B	; 43
     1dfa:	30 e0       	ldi	r19, 0x00	; 0
     1dfc:	f9 01       	movw	r30, r18
     1dfe:	20 81       	ld	r18, Z
-    1e00:	2f 7d       	andi	r18, 0xDF	; 223
+    1e00:	2e 7f       	andi	r18, 0xFE	; 254
     1e02:	fc 01       	movw	r30, r24
     1e04:	20 83       	st	Z, r18
 }
