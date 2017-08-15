@@ -1071,22 +1071,22 @@ void TUI(char action)
 							machine_state = MACHINE_STOP;
      704:	81 e0       	ldi	r24, 0x01	; 1
      706:	80 93 d7 02 	sts	0x02D7, r24	; 0x8002d7 <machine_state>
+							motor_smoothly_rmp(user_profile.rpm, 0);
+     70a:	80 91 cb 02 	lds	r24, 0x02CB	; 0x8002cb <user_profile>
+     70e:	90 91 cc 02 	lds	r25, 0x02CC	; 0x8002cc <user_profile+0x1>
+     712:	60 e0       	ldi	r22, 0x00	; 0
+     714:	70 e0       	ldi	r23, 0x00	; 0
+     716:	0e 94 37 16 	call	0x2c6e	; 0x2c6e <motor_smoothly_rmp>
 							VALVE_OFF;
-     70a:	8b e2       	ldi	r24, 0x2B	; 43
-     70c:	90 e0       	ldi	r25, 0x00	; 0
-     70e:	2b e2       	ldi	r18, 0x2B	; 43
-     710:	30 e0       	ldi	r19, 0x00	; 0
-     712:	f9 01       	movw	r30, r18
-     714:	20 81       	ld	r18, Z
-     716:	2d 7f       	andi	r18, 0xFD	; 253
-     718:	fc 01       	movw	r30, r24
-     71a:	20 83       	st	Z, r18
-							motor_smoothly_rmp(user_profile.rpm, 0);							
-     71c:	80 91 cb 02 	lds	r24, 0x02CB	; 0x8002cb <user_profile>
-     720:	90 91 cc 02 	lds	r25, 0x02CC	; 0x8002cc <user_profile+0x1>
-     724:	60 e0       	ldi	r22, 0x00	; 0
-     726:	70 e0       	ldi	r23, 0x00	; 0
-     728:	0e 94 37 16 	call	0x2c6e	; 0x2c6e <motor_smoothly_rmp>
+     71a:	8b e2       	ldi	r24, 0x2B	; 43
+     71c:	90 e0       	ldi	r25, 0x00	; 0
+     71e:	2b e2       	ldi	r18, 0x2B	; 43
+     720:	30 e0       	ldi	r19, 0x00	; 0
+     722:	f9 01       	movw	r30, r18
+     724:	20 81       	ld	r18, Z
+     726:	2d 7f       	andi	r18, 0xFD	; 253
+     728:	fc 01       	movw	r30, r24
+     72a:	20 83       	st	Z, r18
 							user_profile = backup_profile;
      72c:	80 91 d3 02 	lds	r24, 0x02D3	; 0x8002d3 <backup_profile>
      730:	90 91 d4 02 	lds	r25, 0x02D4	; 0x8002d4 <backup_profile+0x1>
