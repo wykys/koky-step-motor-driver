@@ -12,3 +12,5 @@ wyk_ntc.c
 
 wyk_step_stick.c
 
+wyk_valve.c
+

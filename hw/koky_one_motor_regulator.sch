@@ -543,7 +543,6 @@ Wire Wire Line
 	7800 3250 4500 3250
 Wire Wire Line
 	4500 3350 7800 3350
-NoConn ~ 4500 4850
 Wire Wire Line
 	4500 5450 6650 5450
 Wire Wire Line
@@ -625,4 +624,8 @@ Text Label 5850 6500 0    60   ~ 0
 NTC
 Text Label 5600 4500 2    60   ~ 0
 NTC
+Text GLabel 4800 4850 2    60   Output ~ 0
+VALVE
+Wire Wire Line
+	4800 4850 4500 4850
 $EndSCHEMATC

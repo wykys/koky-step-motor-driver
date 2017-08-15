@@ -115,6 +115,7 @@ int main(void)
 	encoder_init();
 	lcd_init();
 	ntc_init();
+	valve_init();
 
 	sei();
 

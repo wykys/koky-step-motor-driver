@@ -19,7 +19,7 @@ main.d main.o: .././main.c .././settings.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  .././wyk_lcd.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././wyk_ntc.h .././wyk_step_stick.h
+ .././wyk_ntc.h .././wyk_step_stick.h .././wyk_valve.h
 
 .././settings.h:
 
@@ -66,3 +66,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././wyk_ntc.h:
 
 .././wyk_step_stick.h:
+
+.././wyk_valve.h:

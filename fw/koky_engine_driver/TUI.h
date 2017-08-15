@@ -17,6 +17,7 @@
 #include "wyk_lcd.h"
 #include "wyk_ntc.h"
 #include "wyk_step_stick.h"
+#include "wyk_valve.h"
 
 #define MENU_SYMBOL_SELECT	8
 #define MENU_SYMBOL_SPACE	' '

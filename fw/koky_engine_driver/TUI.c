@@ -129,12 +129,14 @@ void TUI(char action)
 						if (machine_state == MACHINE_STOP)
 						{
 							machine_state = MACHINE_START;
+							VALVE_ON;
 							backup_profile = user_profile;
 							motor_smoothly_rmp(actual_rmp, user_profile.rpm);							
 						}
 						else
 						{
 							machine_state = MACHINE_STOP;
+							VALVE_OFF;
 							motor_smoothly_rmp(user_profile.rpm, 0);							
 							user_profile = backup_profile;
 						}

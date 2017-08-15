@@ -18,7 +18,7 @@ TUI.d TUI.o: .././TUI.c .././TUI.h .././settings.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  .././wyk_lcd.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././wyk_ntc.h .././wyk_step_stick.h
+ .././wyk_ntc.h .././wyk_step_stick.h .././wyk_valve.h
 
 .././TUI.h:
 
@@ -65,3 +65,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././wyk_ntc.h:
 
 .././wyk_step_stick.h:
+
+.././wyk_valve.h:
