@@ -16,9 +16,9 @@
 
 FUSES =
 {
-	.low = 0xFF,
+	.low = 0xE2,
 	.high = 0xD6,
-	.extended = 0xFD
+	.extended = 0xFF
 };
 
 #include "TUI.h"

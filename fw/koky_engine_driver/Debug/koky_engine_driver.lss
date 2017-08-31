@@ -515,8 +515,8 @@ void TUI_sec_timer_init(void)
 	OCR1A = F_CPU / 1024;							// TOP value for 1 sec
      314:	88 e8       	ldi	r24, 0x88	; 136
      316:	90 e0       	ldi	r25, 0x00	; 0
-     318:	2d e8       	ldi	r18, 0x8D	; 141
-     31a:	3b e5       	ldi	r19, 0x5B	; 91
+     318:	24 e8       	ldi	r18, 0x84	; 132
+     31a:	3e e1       	ldi	r19, 0x1E	; 30
      31c:	fc 01       	movw	r30, r24
      31e:	31 83       	std	Z+1, r19	; 0x01
      320:	20 83       	st	Z, r18
@@ -781,9 +781,9 @@ ISR(TIMER0_OVF_vect)
      4fc:	9c 01       	movw	r18, r24
      4fe:	ad 01       	movw	r20, r26
      500:	60 e0       	ldi	r22, 0x00	; 0
-     502:	76 e3       	ldi	r23, 0x36	; 54
-     504:	8e e6       	ldi	r24, 0x6E	; 110
-     506:	91 e0       	ldi	r25, 0x01	; 1
+     502:	72 e1       	ldi	r23, 0x12	; 18
+     504:	8a e7       	ldi	r24, 0x7A	; 122
+     506:	90 e0       	ldi	r25, 0x00	; 0
      508:	0e 94 fd 19 	call	0x33fa	; 0x33fa <__mulsi3>
      50c:	dc 01       	movw	r26, r24
      50e:	cb 01       	movw	r24, r22
@@ -3097,9 +3097,9 @@ void lcd_init(void)
 	uint16_t __ticks;
 	__tmp = ((F_CPU) / 4e3) * __ms;
     159c:	20 e0       	ldi	r18, 0x00	; 0
-    159e:	30 e8       	ldi	r19, 0x80	; 128
-    15a0:	4b eb       	ldi	r20, 0xBB	; 187
-    15a2:	55 e4       	ldi	r21, 0x45	; 69
+    159e:	30 e0       	ldi	r19, 0x00	; 0
+    15a0:	4a ef       	ldi	r20, 0xFA	; 250
+    15a2:	54 e4       	ldi	r21, 0x44	; 68
     15a4:	69 81       	ldd	r22, Y+1	; 0x01
     15a6:	7a 81       	ldd	r23, Y+2	; 0x02
     15a8:	8b 81       	ldd	r24, Y+3	; 0x03
@@ -3163,8 +3163,8 @@ void lcd_init(void)
     161a:	9a 87       	std	Y+10, r25	; 0x0a
     161c:	89 87       	std	Y+9, r24	; 0x09
     161e:	0f c0       	rjmp	.+30     	; 0x163e <lcd_init+0x1b8>
-    1620:	88 e5       	ldi	r24, 0x58	; 88
-    1622:	92 e0       	ldi	r25, 0x02	; 2
+    1620:	88 ec       	ldi	r24, 0xC8	; 200
+    1622:	90 e0       	ldi	r25, 0x00	; 0
     1624:	9c 87       	std	Y+12, r25	; 0x0c
     1626:	8b 87       	std	Y+11, r24	; 0x0b
     milliseconds can be achieved.
@@ -3496,9 +3496,9 @@ void lcd_cmd(uint8_t cmd)
 	uint16_t __ticks;
 	__tmp = ((F_CPU) / 4e3) * __ms;
     183c:	20 e0       	ldi	r18, 0x00	; 0
-    183e:	30 e8       	ldi	r19, 0x80	; 128
-    1840:	4b eb       	ldi	r20, 0xBB	; 187
-    1842:	55 e4       	ldi	r21, 0x45	; 69
+    183e:	30 e0       	ldi	r19, 0x00	; 0
+    1840:	4a ef       	ldi	r20, 0xFA	; 250
+    1842:	54 e4       	ldi	r21, 0x44	; 68
     1844:	69 81       	ldd	r22, Y+1	; 0x01
     1846:	7a 81       	ldd	r23, Y+2	; 0x02
     1848:	8b 81       	ldd	r24, Y+3	; 0x03
@@ -3562,8 +3562,8 @@ void lcd_cmd(uint8_t cmd)
     18ba:	98 8f       	std	Y+24, r25	; 0x18
     18bc:	8f 8b       	std	Y+23, r24	; 0x17
     18be:	0f c0       	rjmp	.+30     	; 0x18de <lcd_cmd+0xe4>
-    18c0:	88 e5       	ldi	r24, 0x58	; 88
-    18c2:	92 e0       	ldi	r25, 0x02	; 2
+    18c0:	88 ec       	ldi	r24, 0xC8	; 200
+    18c2:	90 e0       	ldi	r25, 0x00	; 0
     18c4:	9a 8f       	std	Y+26, r25	; 0x1a
     18c6:	89 8f       	std	Y+25, r24	; 0x19
     18c8:	89 8d       	ldd	r24, Y+25	; 0x19
@@ -3657,9 +3657,9 @@ void lcd_cmd(uint8_t cmd)
 	uint16_t __ticks;
 	__tmp = ((F_CPU) / 4e3) * __ms;
     194a:	20 e0       	ldi	r18, 0x00	; 0
-    194c:	30 e8       	ldi	r19, 0x80	; 128
-    194e:	4b eb       	ldi	r20, 0xBB	; 187
-    1950:	55 e4       	ldi	r21, 0x45	; 69
+    194c:	30 e0       	ldi	r19, 0x00	; 0
+    194e:	4a ef       	ldi	r20, 0xFA	; 250
+    1950:	54 e4       	ldi	r21, 0x44	; 68
     1952:	6d 81       	ldd	r22, Y+5	; 0x05
     1954:	7e 81       	ldd	r23, Y+6	; 0x06
     1956:	8f 81       	ldd	r24, Y+7	; 0x07
@@ -3723,8 +3723,8 @@ void lcd_cmd(uint8_t cmd)
     19c8:	9e 87       	std	Y+14, r25	; 0x0e
     19ca:	8d 87       	std	Y+13, r24	; 0x0d
     19cc:	0f c0       	rjmp	.+30     	; 0x19ec <lcd_cmd+0x1f2>
-    19ce:	88 e5       	ldi	r24, 0x58	; 88
-    19d0:	92 e0       	ldi	r25, 0x02	; 2
+    19ce:	88 ec       	ldi	r24, 0xC8	; 200
+    19d0:	90 e0       	ldi	r25, 0x00	; 0
     19d2:	98 8b       	std	Y+16, r25	; 0x10
     19d4:	8f 87       	std	Y+15, r24	; 0x0f
     19d6:	8f 85       	ldd	r24, Y+15	; 0x0f
@@ -3866,10 +3866,10 @@ void lcd_put(char znak)
 	uint8_t __ticks;
 	double __tmp2 ;
 	__tmp = ((F_CPU) / 3e6) * __us;
-    1aaa:	20 e0       	ldi	r18, 0x00	; 0
-    1aac:	30 e0       	ldi	r19, 0x00	; 0
-    1aae:	40 e0       	ldi	r20, 0x00	; 0
-    1ab0:	51 e4       	ldi	r21, 0x41	; 65
+    1aaa:	2b ea       	ldi	r18, 0xAB	; 171
+    1aac:	3a ea       	ldi	r19, 0xAA	; 170
+    1aae:	4a e2       	ldi	r20, 0x2A	; 42
+    1ab0:	50 e4       	ldi	r21, 0x40	; 64
     1ab2:	69 81       	ldd	r22, Y+1	; 0x01
     1ab4:	7a 81       	ldd	r23, Y+2	; 0x02
     1ab6:	8b 81       	ldd	r24, Y+3	; 0x03
@@ -3882,15 +3882,15 @@ void lcd_put(char znak)
     1ac6:	af a3       	std	Y+39, r26	; 0x27
     1ac8:	b8 a7       	std	Y+40, r27	; 0x28
 	__tmp2 = ((F_CPU) / 4e6) * __us;
-    1aca:	20 e0       	ldi	r18, 0x00	; 0
-    1acc:	30 e0       	ldi	r19, 0x00	; 0
-    1ace:	40 ec       	ldi	r20, 0xC0	; 192
-    1ad0:	50 e4       	ldi	r21, 0x40	; 64
-    1ad2:	69 81       	ldd	r22, Y+1	; 0x01
-    1ad4:	7a 81       	ldd	r23, Y+2	; 0x02
-    1ad6:	8b 81       	ldd	r24, Y+3	; 0x03
-    1ad8:	9c 81       	ldd	r25, Y+4	; 0x04
-    1ada:	0e 94 5b 19 	call	0x32b6	; 0x32b6 <__mulsf3>
+    1aca:	89 81       	ldd	r24, Y+1	; 0x01
+    1acc:	9a 81       	ldd	r25, Y+2	; 0x02
+    1ace:	ab 81       	ldd	r26, Y+3	; 0x03
+    1ad0:	bc 81       	ldd	r27, Y+4	; 0x04
+    1ad2:	9c 01       	movw	r18, r24
+    1ad4:	ad 01       	movw	r20, r26
+    1ad6:	bc 01       	movw	r22, r24
+    1ad8:	cd 01       	movw	r24, r26
+    1ada:	0e 94 3b 17 	call	0x2e76	; 0x2e76 <__addsf3>
     1ade:	dc 01       	movw	r26, r24
     1ae0:	cb 01       	movw	r24, r22
     1ae2:	89 a7       	std	Y+41, r24	; 0x29
@@ -3950,9 +3950,9 @@ void lcd_put(char znak)
 	uint16_t __ticks;
 	__tmp = ((F_CPU) / 4e3) * __ms;
     1b42:	20 e0       	ldi	r18, 0x00	; 0
-    1b44:	30 e8       	ldi	r19, 0x80	; 128
-    1b46:	4b eb       	ldi	r20, 0xBB	; 187
-    1b48:	55 e4       	ldi	r21, 0x45	; 69
+    1b44:	30 e0       	ldi	r19, 0x00	; 0
+    1b46:	4a ef       	ldi	r20, 0xFA	; 250
+    1b48:	54 e4       	ldi	r21, 0x44	; 68
     1b4a:	6e a5       	ldd	r22, Y+46	; 0x2e
     1b4c:	7f a5       	ldd	r23, Y+47	; 0x2f
     1b4e:	88 a9       	ldd	r24, Y+48	; 0x30
@@ -4016,8 +4016,8 @@ void lcd_put(char znak)
     1bc0:	9f ab       	std	Y+55, r25	; 0x37
     1bc2:	8e ab       	std	Y+54, r24	; 0x36
     1bc4:	0f c0       	rjmp	.+30     	; 0x1be4 <lcd_put+0x1a0>
-    1bc6:	88 e5       	ldi	r24, 0x58	; 88
-    1bc8:	92 e0       	ldi	r25, 0x02	; 2
+    1bc6:	88 ec       	ldi	r24, 0xC8	; 200
+    1bc8:	90 e0       	ldi	r25, 0x00	; 0
     1bca:	99 af       	std	Y+57, r25	; 0x39
     1bcc:	88 af       	std	Y+56, r24	; 0x38
     1bce:	88 ad       	ldd	r24, Y+56	; 0x38
@@ -4192,10 +4192,10 @@ _delay_loop_1(uint8_t __count)
 	uint8_t __ticks;
 	double __tmp2 ;
 	__tmp = ((F_CPU) / 3e6) * __us;
-    1cd4:	20 e0       	ldi	r18, 0x00	; 0
-    1cd6:	30 e0       	ldi	r19, 0x00	; 0
-    1cd8:	40 e0       	ldi	r20, 0x00	; 0
-    1cda:	51 e4       	ldi	r21, 0x41	; 65
+    1cd4:	2b ea       	ldi	r18, 0xAB	; 171
+    1cd6:	3a ea       	ldi	r19, 0xAA	; 170
+    1cd8:	4a e2       	ldi	r20, 0x2A	; 42
+    1cda:	50 e4       	ldi	r21, 0x40	; 64
     1cdc:	6d 81       	ldd	r22, Y+5	; 0x05
     1cde:	7e 81       	ldd	r23, Y+6	; 0x06
     1ce0:	8f 81       	ldd	r24, Y+7	; 0x07
@@ -4208,15 +4208,15 @@ _delay_loop_1(uint8_t __count)
     1cf0:	ab 87       	std	Y+11, r26	; 0x0b
     1cf2:	bc 87       	std	Y+12, r27	; 0x0c
 	__tmp2 = ((F_CPU) / 4e6) * __us;
-    1cf4:	20 e0       	ldi	r18, 0x00	; 0
-    1cf6:	30 e0       	ldi	r19, 0x00	; 0
-    1cf8:	40 ec       	ldi	r20, 0xC0	; 192
-    1cfa:	50 e4       	ldi	r21, 0x40	; 64
-    1cfc:	6d 81       	ldd	r22, Y+5	; 0x05
-    1cfe:	7e 81       	ldd	r23, Y+6	; 0x06
-    1d00:	8f 81       	ldd	r24, Y+7	; 0x07
-    1d02:	98 85       	ldd	r25, Y+8	; 0x08
-    1d04:	0e 94 5b 19 	call	0x32b6	; 0x32b6 <__mulsf3>
+    1cf4:	8d 81       	ldd	r24, Y+5	; 0x05
+    1cf6:	9e 81       	ldd	r25, Y+6	; 0x06
+    1cf8:	af 81       	ldd	r26, Y+7	; 0x07
+    1cfa:	b8 85       	ldd	r27, Y+8	; 0x08
+    1cfc:	9c 01       	movw	r18, r24
+    1cfe:	ad 01       	movw	r20, r26
+    1d00:	bc 01       	movw	r22, r24
+    1d02:	cd 01       	movw	r24, r26
+    1d04:	0e 94 3b 17 	call	0x2e76	; 0x2e76 <__addsf3>
     1d08:	dc 01       	movw	r26, r24
     1d0a:	cb 01       	movw	r24, r22
     1d0c:	8d 87       	std	Y+13, r24	; 0x0d
@@ -4276,9 +4276,9 @@ _delay_loop_1(uint8_t __count)
 	uint16_t __ticks;
 	__tmp = ((F_CPU) / 4e3) * __ms;
     1d6c:	20 e0       	ldi	r18, 0x00	; 0
-    1d6e:	30 e8       	ldi	r19, 0x80	; 128
-    1d70:	4b eb       	ldi	r20, 0xBB	; 187
-    1d72:	55 e4       	ldi	r21, 0x45	; 69
+    1d6e:	30 e0       	ldi	r19, 0x00	; 0
+    1d70:	4a ef       	ldi	r20, 0xFA	; 250
+    1d72:	54 e4       	ldi	r21, 0x44	; 68
     1d74:	6a 89       	ldd	r22, Y+18	; 0x12
     1d76:	7b 89       	ldd	r23, Y+19	; 0x13
     1d78:	8c 89       	ldd	r24, Y+20	; 0x14
@@ -4342,8 +4342,8 @@ _delay_loop_1(uint8_t __count)
     1dea:	9b 8f       	std	Y+27, r25	; 0x1b
     1dec:	8a 8f       	std	Y+26, r24	; 0x1a
     1dee:	0f c0       	rjmp	.+30     	; 0x1e0e <lcd_put+0x3ca>
-    1df0:	88 e5       	ldi	r24, 0x58	; 88
-    1df2:	92 e0       	ldi	r25, 0x02	; 2
+    1df0:	88 ec       	ldi	r24, 0xC8	; 200
+    1df2:	90 e0       	ldi	r25, 0x00	; 0
     1df4:	9d 8f       	std	Y+29, r25	; 0x1d
     1df6:	8c 8f       	std	Y+28, r24	; 0x1c
     milliseconds can be achieved.
@@ -6448,9 +6448,9 @@ void motor_set_rpm(uint16_t rpm)					// rote per minute
 	uint32_t buf;
 	const uint32_t freq = F_CPU*60;
     2acc:	80 e0       	ldi	r24, 0x00	; 0
-    2ace:	98 ea       	ldi	r25, 0xA8	; 168
-    2ad0:	a4 ed       	ldi	r26, 0xD4	; 212
-    2ad2:	b5 e5       	ldi	r27, 0x55	; 85
+    2ace:	98 e3       	ldi	r25, 0x38	; 56
+    2ad0:	ac e9       	ldi	r26, 0x9C	; 156
+    2ad2:	bc e1       	ldi	r27, 0x1C	; 28
     2ad4:	8a 83       	std	Y+2, r24	; 0x02
     2ad6:	9b 83       	std	Y+3, r25	; 0x03
     2ad8:	ac 83       	std	Y+4, r26	; 0x04
@@ -6780,9 +6780,9 @@ void motor_smoothly_rmp(uint16_t rpm_start, uint16_t rpm_end)
 	uint16_t __ticks;
 	__tmp = ((F_CPU) / 4e3) * __ms;
     2d0e:	20 e0       	ldi	r18, 0x00	; 0
-    2d10:	30 e8       	ldi	r19, 0x80	; 128
-    2d12:	4b eb       	ldi	r20, 0xBB	; 187
-    2d14:	55 e4       	ldi	r21, 0x45	; 69
+    2d10:	30 e0       	ldi	r19, 0x00	; 0
+    2d12:	4a ef       	ldi	r20, 0xFA	; 250
+    2d14:	54 e4       	ldi	r21, 0x44	; 68
     2d16:	6c 81       	ldd	r22, Y+4	; 0x04
     2d18:	7d 81       	ldd	r23, Y+5	; 0x05
     2d1a:	8e 81       	ldd	r24, Y+6	; 0x06
@@ -6846,8 +6846,8 @@ void motor_smoothly_rmp(uint16_t rpm_start, uint16_t rpm_end)
     2d8c:	9d 87       	std	Y+13, r25	; 0x0d
     2d8e:	8c 87       	std	Y+12, r24	; 0x0c
     2d90:	0f c0       	rjmp	.+30     	; 0x2db0 <motor_smoothly_rmp+0x142>
-    2d92:	88 e5       	ldi	r24, 0x58	; 88
-    2d94:	92 e0       	ldi	r25, 0x02	; 2
+    2d92:	88 ec       	ldi	r24, 0xC8	; 200
+    2d94:	90 e0       	ldi	r25, 0x00	; 0
     2d96:	9f 87       	std	Y+15, r25	; 0x0f
     2d98:	8e 87       	std	Y+14, r24	; 0x0e
     milliseconds can be achieved.
