@@ -66,7 +66,7 @@ ISR(INT1_vect)
 		else
 		{
 			dir = 0;
-			step = 0;
+			//step = 0;
 		}
 	}
 	else
@@ -80,7 +80,7 @@ ISR(INT1_vect)
 		else
 		{
 			dir = 1;
-			step = 0;
+			//step = 0;
 		}
 	}
 }
