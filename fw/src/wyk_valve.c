@@ -1,4 +1,4 @@
-#include "wyk_valve.h"
+#include "../lib/wyk_valve.h"
 
 void valve_init(void)
 {

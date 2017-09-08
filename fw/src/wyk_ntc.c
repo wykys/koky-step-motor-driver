@@ -1,4 +1,4 @@
-#include "wyk_ntc.h"
+#include "../lib/wyk_ntc.h"
 
 // HW constant
 #define V_REF	5.0		// reference voltage
@@ -25,17 +25,17 @@ int16_t ntc_measure(void)
 {
 	int16_t adc, ntc_res, temp;
 	double volt, tmp_log;
-	
+
 	ADCSRA |= (1<<ADSC);        // start conversion
 	while(ADCSRA & (1<<ADSC));  // wait to end conversion
 	adc=ADC;					// value measurement
-	
+
 	// convert to voltage
 	volt = (V_REF/ADC_MAX) * ((double)adc);
 	ntc_res = (-(volt * R_DIV) / V_REF) / ((volt/V_REF) - 1);
-	
+
 	tmp_log = log(ntc_res/R_REF);
 	temp = 1.0 / ( A1 + B1*tmp_log + C1*tmp_log*tmp_log + D1*tmp_log*tmp_log*tmp_log ) - 273.15;
-	
+
 	return temp;
 }

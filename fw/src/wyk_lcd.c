@@ -1,4 +1,4 @@
-#include "wyk_lcd.h"
+#include "../lib/wyk_lcd.h"
 
 // inicializuje lcd
 void lcd_init(void)
@@ -48,7 +48,7 @@ void lcd_init(void)
 	lcd_put(0b00011111);
 	lcd_put(0b00000000);
 	lcd_put(0b00000000);
-	
+
 	// přepnutí na zápis do zobrazovací paměti
 	lcd_cmd(LCD_CMD_W_DDRAM);
 }
@@ -68,7 +68,7 @@ void lcd_cmd(uint8_t cmd)
 	lcd_set_nibble(cmd>>4);
 	LCD_EN1;
 	_delay_ms(3);
-	LCD_EN0;	
+	LCD_EN0;
 	lcd_set_nibble(cmd);
 	LCD_EN1;
 	_delay_ms(3);

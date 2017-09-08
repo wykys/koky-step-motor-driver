@@ -1,4 +1,4 @@
-#include "wyk_step_stick.h"
+#include "../lib/wyk_step_stick.h"
 
 void motor_init(void)
 {
@@ -7,7 +7,7 @@ void motor_init(void)
 	MOTOR_STEP_DDR |= MOTOR_STEP_PIN;
 
 	MOTOR_DRIVER_OFF;
-	
+
 	switch (MOTOR_USTEP)
 	{
 		case 1:
@@ -36,7 +36,7 @@ void motor_init(void)
 			MOTOR_MS3_1;
 	}
 
-	
+
 
 	TCCR2A = (1<<COM2A0) | (1<<WGM21);				// toggle OCR2A CTC mode
 	TCCR2B = 0;										// clock off
@@ -82,7 +82,7 @@ void motor_smoothly_rmp(uint16_t rpm_start, uint16_t rpm_end)
 {
 	uint16_t rpm;
 	int8_t step;
-	
+
 	if (rpm_start < rpm_end)
 	{
 		step = 1;

@@ -5,7 +5,7 @@
  *  Author: wykys
  */
 
-#include "TUI.h"
+#include "../lib/TUI.h"
 
 menu_t menu;
 uint32_t back_tick;
@@ -132,7 +132,7 @@ void TUI(char action)
 							machine_state = MACHINE_START;
 							VALVE_ON;
 							backup_profile = user_profile;
-							motor_smoothly_rmp(actual_rmp, user_profile.rpm);							
+							motor_smoothly_rmp(actual_rmp, user_profile.rpm);
 						}
 						else
 						{

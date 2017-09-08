@@ -5,7 +5,7 @@
  * Author : wykys
  */
 
-#include "settings.h"
+#include "../lib/settings.h"
 
 #define ENCODER_TICK_FOR_UPDATE		5
 
@@ -21,10 +21,10 @@ FUSES =
 	.extended = 0xFF
 };
 
-#include "TUI.h"
-#include "wyk_lcd.h"
-#include "wyk_ntc.h"
-#include "wyk_step_stick.h"
+#include "../lib/TUI.h"
+#include "../lib/wyk_lcd.h"
+#include "../lib/wyk_ntc.h"
+#include "../lib/wyk_step_stick.h"
 
 // ============================================================================
 #define BTN			(1<<PD2)
@@ -56,7 +56,7 @@ ISR(INT1_vect)
 	TUI_back_timer_clear();
 	if (ENC_A_PIN & ENC_A)
 	{
-		
+
 		if (!dir)
 		{
 			step++;
@@ -93,7 +93,7 @@ void encoder_init(void)
 	EICRA = (1<<ISC01);		// falling edge
 	EIMSK = (1<<INT0);		// int enable from INT0
 
-	// set encoder	
+	// set encoder
 	ENC_A_PORT |= ENC_A;	// pull-up
 	ENC_B_PORT |= ENC_B;	// pull-up
 
@@ -121,7 +121,7 @@ int main(void)
 
 	TUI_inti();
 	TUI('s');
-		
+
 	for(;;)
     {
 		asm("nop");
