@@ -122,8 +122,5 @@ int main(void)
 	TUI_inti();
 	TUI('s');
 
-	for(;;)
-    {
-		asm("nop");
-    }
+	for(;;);
 }
