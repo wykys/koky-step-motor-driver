@@ -32,10 +32,10 @@ $(DEP): ../$(SRC)*.c
 # include genereted dependence
 -include $(DEP)
 # create object modules
-%.o : ../$(SRC)%.c $(DEP)
+%.o : ../$(SRC)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 # create ELF
-$(NAME).elf: $(OBJFILES)
+$(NAME).elf: $(DEP) $(OBJFILES)
 	$(CC) $(CFLAGS) $(OBJFILES) -o $@
 # create HEX
 $(NAME).hex: $(NAME).elf
