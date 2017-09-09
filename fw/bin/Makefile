@@ -22,18 +22,17 @@ SRC = src/
 DEP = dependence.list
 OBJFILES = $(shell find ../$(SRC) -name '*.c' -printf '%f ' | sed -e 's/\.c/\.o/g')
 
-.ONSHELL:
 .PHONY: dependence clean
 
 # build all
 all: $(NAME)
 # genereting dependence
-dependence:
+$(DEP): ../$(SRC)*.c
 	$(CC) -MM ../$(SRC)*.c > $(DEP)
 # include genereted dependence
 -include $(DEP)
 # create object modules
-%.o : ../$(SRC)%.c
+%.o : ../$(SRC)%.c $(DEP)
 	$(CC) $(CFLAGS) -c $< -o $@
 # create ELF
 $(NAME).elf: $(OBJFILES)
