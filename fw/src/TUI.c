@@ -348,7 +348,7 @@ void TUI(char action)
 			else
 				lcd_printf("\f%02d:%02d   ", (user_profile.sec%3600)/60,  (user_profile.sec%3600)%60);
 			lcd_printf("       %3d%cC", ntc_measure(), 223);
-			lcd_printf("\n        %4d", user_profile.rpm);
+			lcd_printf("\n        %4dRPM", user_profile.rpm);
 
 			switch (machine_state)
 			{
