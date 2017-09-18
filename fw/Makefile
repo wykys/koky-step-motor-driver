@@ -4,7 +4,7 @@
 BIN = bin/
 
 all:
-	cd $(BIN) && make
-	
+	make -C $(BIN)
+
 clean:
-	cd $(BIN) && make clean
+	make -C $(BIN) $@
