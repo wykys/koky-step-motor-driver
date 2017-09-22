@@ -42,7 +42,7 @@ $(NAME).hex: $(NAME).elf
 	$(OBJCOPY) -R .eeprom -O ihex $(NAME).elf $(NAME).hex
 # disassembly EFL
 $(NAME).lss: $(NAME).elf
-	$(OBJDUMP)  -h -S kokos_step_motor_driver.elf > $@
+	$(OBJDUMP)  -h -S $(NAME).elf > $@
 # analyze size ELF
 $(NAME): $(NAME).elf $(NAME).hex $(NAME).lss
 	$(BINSIZE) $(NAME).elf
